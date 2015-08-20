@@ -9,7 +9,9 @@ class Presentation
     half_screen_height = TermInfo.screen_height / 2
     half_screen_width  = TermInfo.screen_width  / 2
     @array_of_texts.each do |text|
+      puts "\n" * half_screen_height
       puts (" " * (half_screen_width - text.length / 2)) + text
+      puts "\n" * (half_screen_height - 1)
     end
   end
 end
