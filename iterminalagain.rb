@@ -28,11 +28,19 @@ class Presentation
     when "next"
       @current_slide_position += 1
     when "previous"
-      @current_slide_position -= 1
+      @current_slide_position -= 1 unless initial_slide?
     when "quit"
       return
     end
-    display_slides
+    display_slides unless past_final_slide?
+  end
+
+  def past_final_slide?
+    @current_slide_position == @array_of_texts.size
+  end
+
+  def initial_slide?
+    @current_slide_position == 0
   end
 end
 
